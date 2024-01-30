@@ -8,16 +8,16 @@
 <body>
     <h1>Welcome to Your Bot's Website!</h1>
     
-    <!-- Invite Button -->
+
     <button onclick="inviteBot()">Invite Bot</button>
 
-    <!-- Display User Information -->
+
     <div id="userInfo"></div>
 
-    <!-- JavaScript to handle the button click and fetch user information -->
+
     <script>
         async function inviteBot() {
-            // Redirect to the Discord bot authorization page
+
             window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1197531335745613914&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot+identify+applications.commands";
 
             // Fetch user information from Discord API
