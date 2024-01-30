@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Bot User Info</title>
+    <title>Discord Bot Info</title>
 </head>
 <body>
-    <h1>User Information</h1>
+    <h1>Discord Bot Info</h1>
     <div id="userInfo"></div>
+
+    <!-- Invite button -->
+    <button onclick="redirectToInvite()">Invite Bot</button>
 
     <script>
         async function getUserInfo() {
@@ -41,9 +44,20 @@
             }
         }
 
+        function redirectToInvite() {
+            // Replace YOUR_CLIENT_ID with your bot's client ID
+            const clientId = '1197531335745613914';
+            const redirectUri = encodeURIComponent(window.location.href);
+
+            // Discord OAuth2 authorization URL
+            const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&permissions=8&response_type=token&redirect_uri=${redirectUri}&scope=bot+identify+applications.commands`;
+
+            // Redirect to the authorization URL
+            window.location.href = authUrl;
+        }
+
         // Call the function to fetch user information when the page loads
         getUserInfo();
     </script>
 </body>
 </html>
-
