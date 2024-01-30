@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Bot Info</title>
+    <title>Your Bot's Website</title>
 </head>
 <body>
-    <h1>Discord Bot Info</h1>
+    <h1>Welcome to Your Bot's Website!</h1>
+    
+    <!-- Invite Button -->
+    <button onclick="inviteBot()">Invite Bot</button>
+
+    <!-- Display User Information -->
     <div id="userInfo"></div>
 
-    <!-- Invite button -->
-    <button onclick="redirectToInvite()">Invite Bot</button>
-
+    <!-- JavaScript to handle the button click and fetch user information -->
     <script>
-        async function getUserInfo() {
-            try {
-                // Extract access token from the URL after authorization
-                const urlParams = new URLSearchParams(window.location.hash.substring(1));
-                const accessToken = urlParams.get('access_token');
+        async function inviteBot() {
+            // Redirect to the Discord bot authorization page
+            window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1197531335745613914&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot+identify+applications.commands";
 
-                // Fetch user information from Discord API using the access token
+            // Fetch user information from Discord API
+            try {
                 const response = await fetch('https://discord.com/api/v10/users/@me', {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`
+                        Authorization: 'Bearer https://discord.com/api/oauth2/authorize?client_id=1197531335745613914&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot+identify+applications.commands'  // Replace with the access token obtained after OAuth2 authorization
                     }
                 });
 
                 if (response.ok) {
                     const userInfo = await response.json();
-
                     // Display user information on the page
                     const userInfoDiv = document.getElementById('userInfo');
                     userInfoDiv.innerHTML = `
@@ -43,21 +44,7 @@
                 console.error('An error occurred:', error);
             }
         }
-
-        function redirectToInvite() {
-            // Replace YOUR_CLIENT_ID with your bot's client ID
-            const clientId = '1197531335745613914';
-            const redirectUri = encodeURIComponent(window.location.href);
-
-            // Discord OAuth2 authorization URL
-            const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&permissions=8&response_type=token&redirect_uri=${redirectUri}&scope=bot+identify+applications.commands`;
-
-            // Redirect to the authorization URL
-            window.location.href = authUrl;
-        }
-
-        // Call the function to fetch user information when the page loads
-        getUserInfo();
     </script>
 </body>
 </html>
+
