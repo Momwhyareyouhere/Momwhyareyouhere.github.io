@@ -26,20 +26,26 @@
     </div>
 
     <script>
-        document.getElementById('inviteButton').addEventListener('click', async () => {
-            // Open Discord OAuth2 authorization URL in a new window
-            const oauthUrl = 'https://discord.com/api/oauth2/authorize?client_id=1197531335745613914&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot+identify+applications.commands';
-            const authWindow = window.open(oauthUrl, '_blank', 'width=600,height=600');
+<!-- Modify the OAuth2 URL for Implicit Grant flow -->
+<button id="inviteButton">Invite Bot</button>
 
-            // Check for changes in the window
-            const checkWindow = setInterval(() => {
-                if (authWindow.closed) {
-                    clearInterval(checkWindow);
-                    // Get user information after authorization
-                    getUserInfo();
-                }
-            }, 1000);
-        });
+<script>
+document.getElementById('inviteButton').addEventListener('click', () => {
+    // Open Discord OAuth2 authorization URL in a new window (Implicit Grant flow)
+    const oauthUrl = 'https://discord.com/oauth2/authorize?client_id=1197531335745613914&permissions=8&response_type=token&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot+identify+applications.commands';
+    const authWindow = window.open(oauthUrl, '_blank', 'width=600,height=600');
+
+    // Check the window's status every second
+    const interval = setInterval(() => {
+        if (authWindow.closed) {
+            // The window is closed, redirect to the features page
+            window.location.href = 'https://momwhyareyouhere.github.io/MomwhyareyouhereHelper.github.io/features.html';
+            clearInterval(interval); // Stop checking
+        }
+    }, 1000);
+});
+</script>
+
 
         async function getUserInfo() {
             try {
