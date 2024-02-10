@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momwhyareyouhere Helper</title>
+
+    <!-- Dynamically set favicon -->
+    <link id="favicon" rel="icon" type="image/png" href="" />
+
 </head>
 <body>
     <h1>Welcome to Momwhyareyouhere Helper's Website!</h1>
@@ -11,19 +15,16 @@
     <!-- Add a button to redirect to Discord OAuth2 authorization -->
     <button onclick="inviteBot()">Invite Bot</button>
 
-    <!-- Display profile image -->
-    <img id="profileImage" src="" alt="Profile Image">
-
     <script>
         function inviteBot() {
             // Redirect to Discord OAuth2 authorization link
             window.location.href = "https://discord.com/api/oauth2/authorize?client_id=1205161575766425661&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmomwhyareyouhere.github.io%2FMomwhyareyouhereHelper.github.io%2Ffeatures.html&scope=bot";
         }
 
-        // Load and set profile image from GitHub
+        // Dynamically set favicon from GitHub
         window.onload = function() {
-            const profileImage = document.getElementById('profileImage');
-            profileImage.src = "https://raw.githubusercontent.com/Momwhyareyouhere/MomwhyareyouhereHelper.github.io/main/profile.png";
+            const favicon = document.getElementById('favicon');
+            favicon.href = "https://raw.githubusercontent.com/Momwhyareyouhere/MomwhyareyouhereHelper.github.io/main/profile.png";
         };
     </script>
 </body>
