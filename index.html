@@ -3,40 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momwhyareyouhere Helper</title>
-    <style>
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-
-        .logo-img {
-            width: 100px; 
-            height: auto;
-            margin-right: 10px;
-        }
-    </style>
+    <title>Discord Bot Dashboard</title>
 </head>
 <body>
-    <div class="logo-container">
-
-        <img class="logo-img" src="logo.png" alt="Site Logo">
-        <h1>Invite My Discord Bot</h1>
-    </div>
-    
-    <p>Click the button below to invite my Discord bot to your server:</p>
-    <button onclick="inviteBot()">Invite Bot</button>
-
-    <script>
-        function inviteBot() {
-
-            const inviteLink = 'https://discord.com/api/oauth2/authorize?client_id=1205161575766425661&permissions=8&scope=bot%20applications.commands';
-            
-
-            window.open(inviteLink, '_blank');
-        }
-    </script>
+    <h1>Welcome to the Discord Bot Dashboard</h1>
+    <p>This is a simple dashboard for managing your Discord bot.</p>
+    <p><a href="/commands">View Bot Commands</a></p>
 </body>
 </html>
