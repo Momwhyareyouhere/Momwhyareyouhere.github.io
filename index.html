@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite My Discord Bot</title>
+</head>
+<body>
+    <h1>Invite My Discord Bot</h1>
+    <p>Click the button below to invite my Discord bot to your server:</p>
+    <button onclick="inviteBot()">Invite Bot</button>
+
+    <script>
+        function inviteBot() {
+            // Replace 'YOUR_INVITE_LINK' with your actual Discord bot invite link
+            const inviteLink = 'https://discord.com/api/oauth2/authorize?client_id=1205161575766425661&permissions=8&scope=bot%20applications.commands';
+            
+            // Open the invite link in a new tab
+            window.open(inviteLink, '_blank');
+        }
+    </script>
+</body>
+</html>
