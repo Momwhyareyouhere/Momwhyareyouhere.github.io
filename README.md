@@ -1,2 +1,2 @@
-# MomwhyareyouhereHelper.github.io
-THIS SITE IS COMMING SOON PLEASE JUST WAIT
+# MomwhyareyouhereHelper.github.io[
+https://momwhyareyouhere.github.io/
